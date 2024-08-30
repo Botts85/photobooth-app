@@ -600,6 +600,8 @@ class MediaItem:
             f"scale=min'({scaled_min_width},iw)':-2,setsar=1:1",  # no upscaling
             "-vcodec",
             "h264_qsv",
+            "-global_quality",
+            "20",
             "-movflags",
             "+faststart",
         ]
