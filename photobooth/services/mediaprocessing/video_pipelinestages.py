@@ -44,6 +44,8 @@ def boomerang_stage(video_in: Path) -> Path:
         "[0:v]reverse[r];[0:v][r]concat=n=2:v=1[outv]",
         "-map",
         "[outv]",
+        "-c:v",
+        "h264_qsv",  # Use the Intel QSV encoder
         "-movflags",
         "+faststart",
     ]
