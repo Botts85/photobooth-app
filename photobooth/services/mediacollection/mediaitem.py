@@ -598,7 +598,8 @@ class MediaItem:
         command_video_output = [
             "-filter:v",
             f"scale=min'({scaled_min_width},iw)':-2,setsar=1:1",  # no upscaling
-            "-c:v h264_qsv",
+            "-vcodec",
+            "h264_qsv",
             "-movflags",
             "+faststart",
         ]
