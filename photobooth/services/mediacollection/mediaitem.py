@@ -596,10 +596,8 @@ class MediaItem:
             str(video_in),
         ]
         command_video_output = [
-            "-filter:v",
-            f"scale=min'({scaled_min_width},iw)':-2,setsar=1:1",  # no upscaling
-            "-sws_flags",
-            "fast_bilinear",
+            "-vf",  # Use -vf (video filter) instead of -filter:v for single filter application
+            f"scale_qsv=w=min'({scaled_min_width},iw)':h=-2",  # QSV scaling, maintaining aspect ratio with no upscaling
             "-movflags",
             "+faststart",
         ]
