@@ -422,9 +422,7 @@ class AbstractBackend(ABC):
         ]
         command_video_output = [
             "-vcodec",
-            "libx264",  # warning! image height must be divisible by 2! #there are also hw encoder avail: https://stackoverflow.com/questions/50693934/different-h264-encoders-in-ffmpeg
-            "-preset",
-            "veryfast",
+            "h264_qsv",  # warning! image height must be divisible by 2! #there are also hw encoder avail: https://stackoverflow.com/questions/50693934/different-h264-encoders-in-ffmpeg
             "-b:v",
             f"{appconfig.mediaprocessing.video_bitrate}k",
             "-movflags",
